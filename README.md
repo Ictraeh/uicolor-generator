@@ -1,73 +1,75 @@
-# React + TypeScript + Vite
+# Chaos Palette Lab - UI Color Generator
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Interactive palette playground for generating bold, production-ready UI color tokens with accessibility-aware checks.
 
-Currently, two official plugins are available:
+Repository: [Ictraeh/uicolor-generator](https://github.com/Ictraeh/uicolor-generator)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## Features
 
-## React Compiler
+- Generate palettes from random or seed color input.
+- Toggle light/dark mode quickly.
+- Tune harmony strategy and creativity level.
+- Lock accent family and strict accessibility options.
+- View key colors and full token tables (`global`, `semantic`, `alias`, `component`).
+- Copy all visible tokens in one click.
+- Export as Markdown, text, JSON, or CSS variables.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Tech Stack
 
-## Expanding the ESLint configuration
+- React
+- TypeScript
+- Vite
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## Getting Started
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+### 1) Install dependencies
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```bash
+npm install
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+### 2) Start development server
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```bash
+npm run dev
 ```
+
+### 3) Build for production
+
+```bash
+npm run build
+```
+
+### 4) Preview production build locally
+
+```bash
+npm run preview
+```
+
+## Project Structure
+
+```text
+src/
+  components/        # UI components (swatches, token table, previews)
+  lib/color/         # Palette generation, harmony, accessibility, token mapping
+  lib/export/        # Export format builders (md/txt/json/css)
+  types/             # Shared TypeScript types
+```
+
+## Usage Notes
+
+- Enter a hex color like `#7A5CFF` to generate from seed.
+- `Copy all` in the token panel copies current tab token/value pairs.
+- Key colors are responsive and auto-layout across screen sizes.
+- Tertiary key color is guarded to avoid matching primary/secondary.
+
+## Scripts
+
+- `npm run dev` - Start dev server
+- `npm run build` - Type-check and build
+- `npm run preview` - Preview production build
+- `npm run lint` - Run lint checks
+
+## License
+
+MIT (add or update as needed).
